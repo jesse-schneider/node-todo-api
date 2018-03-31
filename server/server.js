@@ -30,7 +30,6 @@ app.get('/todos', (req,res) => {
   });
 });
 
-// GET /todos/1234234
 app.get('/todos/:id', (req, res) => {
   var id = req.params.id;
   if(!ObjectID.isValid(id)) {
@@ -43,7 +42,7 @@ app.get('/todos/:id', (req, res) => {
     res.send({todo});
   }).catch((e) => {
     return res.status(400).send(e);
-  })
+  });
 });
 
 app.listen(3000, () => {
